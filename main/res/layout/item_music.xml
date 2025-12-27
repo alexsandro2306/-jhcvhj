@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp"
+    app:strokeWidth="0dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp">
+
+        <!-- Album Art / Capa -->
+        <ImageView
+            android:id="@+id/iv_album_art"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:scaleType="centerCrop"
+            android:background="@color/surface_variant"
+            android:contentDescription="Album Art"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:src="@tools:sample/avatars" />
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="8dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="?attr/colorOnSurface"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv_album_art"
+            app:layout_constraintEnd_toStartOf="@id/btn_delete"
+            tools:text="California Love" />
+
+        <!-- Artist -->
+        <TextView
+            android:id="@+id/tv_artist"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textSize="14sp"
+            android:textColor="?attr/colorOnSurfaceVariant"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            app:layout_constraintStart_toStartOf="@id/tv_title"
+            app:layout_constraintEnd_toEndOf="@id/tv_title"
+            tools:text="2Pac" />
+
+        <!-- BPM Badge - TEXTO BRANCO EM FUNDO AZUL -->
+        <TextView
+            android:id="@+id/tv_bpm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="4dp"
+            android:background="@drawable/bg_bpm_badge"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            app:layout_constraintTop_toBottomOf="@id/tv_artist"
+            app:layout_constraintStart_toStartOf="@id/tv_title"
+            tools:text="94 BPM" />
+
+        <!-- Platform Badge (Spotify) -->
+        <TextView
+            android:id="@+id/tv_platform"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="4dp"
+            android:background="@drawable/bg_platform_badge"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:textColor="#FF9800"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="@id/tv_bpm"
+            app:layout_constraintBottom_toBottomOf="@id/tv_bpm"
+            app:layout_constraintStart_toEndOf="@id/tv_bpm"
+            tools:visibility="visible"
+            tools:text="SPOTIFY" />
+
+        <!-- Delete Button -->
+        <ImageButton
+            android:id="@+id/btn_delete"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@android:drawable/ic_menu_delete"
+            android:contentDescription="Delete"
+            app:tint="@color/error"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
